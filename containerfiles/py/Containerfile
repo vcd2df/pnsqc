@@ -1,0 +1,11 @@
+FROM python:3
+
+RUN pip install vcd2df
+
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/cd-public/hasp25.git
+
+RUN git clone https://github.com/vcd2df/py_ex.git
+
+CMD ["python3", "py_ex/py_ex.py"]
